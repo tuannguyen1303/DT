@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+	<!-- Configurations for data collectors -->
+	<DataCollectionRunSettings>
+		<DataCollectors>
+			
+			<DataCollector friendlyName="XPlat Code Coverage">
+				<Configuration>
+					<Format>cobertura,opencover</Format>
+					<ExcludeByFile>
+						**/DigitalTwin.Common/**/*.cs,
+						**/DigitalTwin.Data/**/*.cs,
+						**/DigitalTwin.Models/**/*.cs,
+						**/DigitalTwin.Business/Background/*.cs,
+						**/DigitalTwin.Business/Helpers/*.cs,
+						**/DigitalTwin.Business/Installers/*.cs,
+					</ExcludeByFile>
+					<IncludeDirectory>
+						**/DigitalTwin.Business/Handlers/**/*.cs,
+						**/DigitalTwin.Business/Services/**/*.cs
+					</IncludeDirectory>
+					<!-- [Assembly-Filter]Type-Filter -->
+					<ExcludeByAttribute>Obsolete,GeneratedCodeAttribute,CompilerGeneratedAttribute</ExcludeByAttribute>
+					<SingleHit>false</SingleHit>
+					<UseSourceLink>true</UseSourceLink>
+					<IncludeTestAssembly>false</IncludeTestAssembly>
+					<SkipAutoProps>true</SkipAutoProps>
+				</Configuration>
+			</DataCollector>
+		</DataCollectors>
+	</DataCollectionRunSettings>
+</RunSettings>

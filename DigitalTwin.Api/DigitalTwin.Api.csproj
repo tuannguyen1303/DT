@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'DigitalTwin.Api-Staging' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'DigitalTwin.Api-Production' " />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DigitalTwin.Business\DigitalTwin.Business.csproj" />
+    <ProjectReference Include="..\DigitalTwin.Common\DigitalTwin.Common.csproj" />
+    <ProjectReference Include="..\DigitalTwin.Core\DigitalTwin.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DigitalTwin.Api.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

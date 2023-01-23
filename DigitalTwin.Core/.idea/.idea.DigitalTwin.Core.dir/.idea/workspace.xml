@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="55dfd05a-4c26-4426-8f83-914acb736009" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Api/Controllers/BaseController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Constants/Appsettings.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Constants/DateTimeFormat.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Constants/DateTimeGlobal.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Constants/ErrorCodes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Constants/ErrorMessages.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Constants/HttpHeaders.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Enums/EDriverCategoryTypes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Enums/EExportTypes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Enums/ESortingTypes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Enums/EViolationTypes.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Exceptions/ResponseException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Extensions/DIExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Extensions/DateTimeExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Extensions/DictionaryExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Extensions/IEnumerableExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Extensions/IQueryableExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Extensions/NumberExtension.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Extensions/StringExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Extensions/TypeConverterExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Installer/Attributes/NotRunInstaller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Installer/IInstaller.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/JsonConverters/DateTimeNullableZeroTimeZone.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/JsonConverters/DateTimeZeroTimeZone.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/PagedDictionary/IPagedDictionary.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/PagedDictionary/PagedDictionary.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/PagedList/IPagedList.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/PagedList/PagedList.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Utilities/DateTimeUtils.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Utilities/FilterOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../DigitalTwin.Common/Utilities/SortingOptions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DigitalTwin.Api/Controllers/WeatherForecastController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DigitalTwin.Api/Controllers/WeatherForecastController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DigitalTwin.Api/DigitalTwin.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DigitalTwin.Api/DigitalTwin.Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DigitalTwin.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../DigitalTwin.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DigitalTwin.Business/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DigitalTwin.Business/DigitalTwin.Business.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DigitalTwin.Business/DigitalTwin.Business.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DigitalTwin.Common/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DigitalTwin.Common/DigitalTwin.Common.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../DigitalTwin.Common/DigitalTwin.Common.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DigitalTwin.Data/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DigitalTwin.Models/Class1.cs" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2EYpGdvFQCTB4LgEwcE0mRaQ5Pe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="55dfd05a-4c26-4426-8f83-914acb736009" name="Changes" comment="" />
+      <created>1662782280726</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1662782280726</updated>
+      <workItem from="1662782285853" duration="34000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

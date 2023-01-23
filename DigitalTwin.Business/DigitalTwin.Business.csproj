@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DigitalTwin.Common\DigitalTwin.Common.csproj" />
+    <ProjectReference Include="..\DigitalTwin.Data\DigitalTwin.Data.csproj" />
+    <ProjectReference Include="..\DigitalTwin.Models\DigitalTwin.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Services\Processor\" />
+    <None Remove="Services\Background\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="SQLScript\SyncDataProductLinkDetail.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SQLScript\NewScriptSyncEntity.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SQLScript\SyncMetaEntityType.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SQLScript\TrafficLightMeta.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SQLScript\UnitOfMeasureMeta.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SQLScript\SyncDataEnity.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
