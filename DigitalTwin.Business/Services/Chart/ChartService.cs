@@ -154,15 +154,15 @@ namespace DigitalTwin.Business.Services.Chart
                 {
                     bool checkHasData = false;
 
-                    Expression<Func<ProductDetailDto, bool>> mainExpression = dto =>
-                        dto.DateData.Month == label.MonthNumb && dto.DateData.Year == request.ToDate.Value.Year;
+                    Expression<Func<ProductDetailDto, bool>> mainExpressionQuery = p =>
+                        p.DateData.Month == label.MonthNumb && p.DateData.Year == request.ToDate.Value.Year;
 
-                    var orQueryTMP = LinqQueryExtension.CombineOrQuery(mainExpression, x => !string.IsNullOrEmpty(x.Kbpi));
+                    var orQueryTMP = LinqQueryExtension.CombineOrQuery(mainExpressionQuery, x => !string.IsNullOrEmpty(x.Kbpi));
                     var andQueryTMP =
-                        LinqQueryExtension.CombineAndQuery(mainExpression, x => !string.IsNullOrEmpty(x.Kbpi));
+                        LinqQueryExtension.CombineAndQuery(mainExpressionQuery, x => !string.IsNullOrEmpty(x.Kbpi));
                     
                     var kpbiTMP = productLinkDto.SumDecimalByProp(
-                        LinqQueryExtension.CombineAndQuery(mainExpression, x => !string.IsNullOrEmpty(x.Kbpi)),
+                        LinqQueryExtension.CombineAndQuery(mainExpressionQuery, x => !string.IsNullOrEmpty(x.Kbpi)),
                         x => decimal.Parse(x.Kbpi!));
             
                     decimal? kpbi = productLinkDto.Any(p =>
@@ -175,7 +175,7 @@ namespace DigitalTwin.Business.Services.Chart
                         : null;
 
                     var actualTMP = productLinkDto.SumDecimalByProp(
-                        LinqQueryExtension.CombineAndQuery(mainExpression, x => !string.IsNullOrEmpty(x.Value)),
+                        LinqQueryExtension.CombineAndQuery(mainExpressionQuery, x => !string.IsNullOrEmpty(x.Value)),
                         x => decimal.Parse(x.Value!));
 
                     decimal? actual = productLinkDto.Any(p =>

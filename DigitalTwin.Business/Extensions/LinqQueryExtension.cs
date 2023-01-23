@@ -7,7 +7,7 @@ public static class LinqQueryExtension
     public static Expression<Func<T, bool>> CombineAndQuery<T>(Expression<Func<T, bool>> filter1,
         Expression<Func<T, bool>> filter2)
     {
-        // combine two predicates:
+        // combine two predicates using and:
         // need to rewrite one of the lambdas, swapping in the parameter from the other
         var rewrittenBody1 = new ReplaceVisitor(
             filter1.Parameters[0], filter2.Parameters[0]).Visit(filter1.Body);
@@ -15,11 +15,11 @@ public static class LinqQueryExtension
             Expression.AndAlso(rewrittenBody1!, filter2.Body), filter2.Parameters);
         return newFilter;
     }
-    
+
     public static Expression<Func<T, bool>> CombineOrQuery<T>(Expression<Func<T, bool>> filter1,
         Expression<Func<T, bool>> filter2)
     {
-        // combine two predicates:
+        // combine two predicates using or:
         // need to rewrite one of the lambdas, swapping in the parameter from the other
         var rewrittenBody1 = new ReplaceVisitor(
             filter1.Parameters[0], filter2.Parameters[0]).Visit(filter1.Body);
