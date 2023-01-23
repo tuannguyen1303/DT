@@ -45,13 +45,6 @@ namespace DigitalTwin.Business.Services.Chart
                     var List = productLinkDto.Where(p => p.DateData.Day == 1).ToList();
                     bool checkHasData = false;
 
-                    // Expression<Func<ProductDetailDto, bool>> mainExpression = dto =>
-                    //     dto.DateData.Day == label && dto.DateData.Month == request.ToDate.Value.Month;
-                    //
-                    // var kpbiTMP = productLinkDto.SumDecimalByProp(
-                    //     LinqQueryExtension.AndQuery(mainExpression, x => !string.IsNullOrEmpty(x.Kbpi)),
-                    //     x => decimal.Parse(x.Kbpi!));
-
                     decimal? kpbi = productLinkDto.Any(p =>
                         p.DateData.Day == label && p.DateData.Month == request.ToDate.Value.Month &&
                         !string.IsNullOrEmpty(p.Kbpi))
