@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using DigitalTwin.Business.Extensions;
 using DigitalTwin.Business.Helpers;
 using DigitalTwin.Common.Constants;
 using DigitalTwin.Common.Extensions;
@@ -43,6 +44,14 @@ namespace DigitalTwin.Business.Services.Chart
                 {
                     var List = productLinkDto.Where(p => p.DateData.Day == 1).ToList();
                     bool checkHasData = false;
+
+                    // Expression<Func<ProductDetailDto, bool>> mainExpression = dto =>
+                    //     dto.DateData.Day == label && dto.DateData.Month == request.ToDate.Value.Month;
+                    //
+                    // var kpbiTMP = productLinkDto.SumDecimalByProp(
+                    //     LinqQueryExtension.AndQuery(mainExpression, x => !string.IsNullOrEmpty(x.Kbpi)),
+                    //     x => decimal.Parse(x.Kbpi!));
+
                     decimal? kpbi = productLinkDto.Any(p =>
                         p.DateData.Day == label && p.DateData.Month == request.ToDate.Value.Month &&
                         !string.IsNullOrEmpty(p.Kbpi))
@@ -51,6 +60,7 @@ namespace DigitalTwin.Business.Services.Chart
                                 !string.IsNullOrEmpty(p.Kbpi))
                             .Sum(p => decimal.Parse(p.Kbpi!))
                         : null;
+
                     decimal? actual = productLinkDto.Any(p =>
                         p.DateData.Day == label && p.DateData.Month == request.ToDate.Value.Month &&
                         !string.IsNullOrEmpty(p.Value))
@@ -59,6 +69,7 @@ namespace DigitalTwin.Business.Services.Chart
                                 !string.IsNullOrEmpty(p.Value))
                             .Sum(p => decimal.Parse(p.Value!))
                         : null;
+
                     decimal? target = productLinkDto.Any(p =>
                         p.DateData.Day == label && p.DateData.Month == request.ToDate.Value.Month &&
                         !string.IsNullOrEmpty(p.Target))
@@ -142,6 +153,18 @@ namespace DigitalTwin.Business.Services.Chart
                 foreach (var label in FrequencyLabel.MonthlyLabels)
                 {
                     bool checkHasData = false;
+
+                    Expression<Func<ProductDetailDto, bool>> mainExpression = dto =>
+                        dto.DateData.Month == label.MonthNumb && dto.DateData.Year == request.ToDate.Value.Year;
+
+                    var orQueryTMP = LinqQueryExtension.CombineOrQuery(mainExpression, x => !string.IsNullOrEmpty(x.Kbpi));
+                    var andQueryTMP =
+                        LinqQueryExtension.CombineAndQuery(mainExpression, x => !string.IsNullOrEmpty(x.Kbpi));
+                    
+                    var kpbiTMP = productLinkDto.SumDecimalByProp(
+                        LinqQueryExtension.CombineAndQuery(mainExpression, x => !string.IsNullOrEmpty(x.Kbpi)),
+                        x => decimal.Parse(x.Kbpi!));
+            
                     decimal? kpbi = productLinkDto.Any(p =>
                         p.DateData.Month == label.MonthNumb && p.DateData.Year == request.ToDate.Value.Year &&
                         !string.IsNullOrEmpty(p.Kbpi))
@@ -150,6 +173,11 @@ namespace DigitalTwin.Business.Services.Chart
                                 !string.IsNullOrEmpty(p.Kbpi))
                             .Sum(p => decimal.Parse(p.Kbpi!))
                         : null;
+
+                    var actualTMP = productLinkDto.SumDecimalByProp(
+                        LinqQueryExtension.CombineAndQuery(mainExpression, x => !string.IsNullOrEmpty(x.Value)),
+                        x => decimal.Parse(x.Value!));
+
                     decimal? actual = productLinkDto.Any(p =>
                         p.DateData.Month == label.MonthNumb && p.DateData.Year == request.ToDate.Value.Year &&
                         !string.IsNullOrEmpty(p.Value))
@@ -158,6 +186,7 @@ namespace DigitalTwin.Business.Services.Chart
                                 !string.IsNullOrEmpty(p.Value))
                             .Sum(p => decimal.Parse(p.Value!))
                         : null;
+
                     decimal? target = productLinkDto.Any(p =>
                         p.DateData.Month == label.MonthNumb && p.DateData.Year == request.ToDate.Value.Year &&
                         !string.IsNullOrEmpty(p.Target))
@@ -166,6 +195,7 @@ namespace DigitalTwin.Business.Services.Chart
                                 !string.IsNullOrEmpty(p.Target))
                             .Sum(p => decimal.Parse(p.Target!))
                         : null;
+                    
                     decimal? planned = productLinkDto.Any(p =>
                         p.DateData.Month == label.MonthNumb && p.DateData.Year == request.ToDate.Value.Year &&
                         !string.IsNullOrEmpty(p.Planned))
@@ -174,6 +204,7 @@ namespace DigitalTwin.Business.Services.Chart
                                 !string.IsNullOrEmpty(p.Planned))
                             .Sum(p => decimal.Parse(p.Planned!))
                         : null;
+                    
                     decimal? forecast = productLinkDto.Any(p =>
                         p.DateData.Month == label.MonthNumb && p.DateData.Year == request.ToDate.Value.Year &&
                         !string.IsNullOrEmpty(p.Forecast))
@@ -182,9 +213,11 @@ namespace DigitalTwin.Business.Services.Chart
                                 !string.IsNullOrEmpty(p.Forecast))
                             .Sum(p => decimal.Parse(p.Forecast!))
                         : null;
+                    
                     string title = productLinkDto.Any()
                         ? productLinkDto.FirstOrDefault(p => !string.IsNullOrEmpty(p.Unit))!.Unit!
                         : "";
+                    
                     if (kpbi != 0 || actual != 0 || target != 0 || planned != 0 || forecast != 0)
                     {
                         checkHasData = true;
@@ -241,12 +274,12 @@ namespace DigitalTwin.Business.Services.Chart
                 foreach (var label in FrequencyLabel.QuarterlyLabels)
                 {
                     bool checkHasData = false;
-                    
+
                     Expression<Func<ProductDetailDto, bool>> expression = dto =>
                         FrequencyLabel.Quarterly(dto.DateData.Month) == label &&
                         dto.DateData.Year == request.ToDate.Value.Year
                         && !string.IsNullOrEmpty(dto.Kbpi);
-                    
+
                     decimal? kpbi = productLinkDto.Any(p => FrequencyLabel.Quarterly(p.DateData.Month) == label &&
                                                             p.DateData.Year == request.ToDate.Value.Year
                                                             && !string.IsNullOrEmpty(p.Kbpi))
