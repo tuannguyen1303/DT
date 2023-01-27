@@ -7,7 +7,7 @@ namespace DigitalTwin.Common.Extensions
 {
     public static class DIExtension
     {
-        public static IServiceCollection AutoRegisterServices(this IServiceCollection services,
+        public static void AutoRegisterServices(this IServiceCollection services,
             IConfiguration configuration, params System.Reflection.Assembly[] assemblies)
         {
             var installers = assemblies
@@ -21,7 +21,6 @@ namespace DigitalTwin.Common.Extensions
                 .ToList();
 
             installers.ForEach(installer => installer.InstallServices(services, configuration));
-            return services;
         }
     }
 }

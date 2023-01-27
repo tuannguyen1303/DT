@@ -1,10 +1,8 @@
+using DigitalTwin.Api.Extensions;
 using DigitalTwin.Api.Middlewares;
-using DigitalTwin.Common.AppsettingsModels;
 using DigitalTwin.Common.Constants;
 using DigitalTwin.Common.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
@@ -24,29 +22,9 @@ builder.Services.AutoRegisterServices(builder.Configuration,
 builder.Services.AddEndpointsApiExplorer();
 
 // Azure AD
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        var azureAd = builder.Configuration.GetSection(Appsettings.AzureAD).Get<AzureADConfig>();
-        options.Authority = azureAd.Authority;
-        options.Audience = azureAd.Audience;
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = false,
-            ValidateAudience = false,
-            ValidateIssuerSigningKey = false,
-            ValidateLifetime = false,
-            ValidateActor = false,
-            ValidateTokenReplay = false
-        };
-    });
+builder.AuthenticationBuilder(JwtBearerDefaults.AuthenticationScheme);
 
-builder.Services.AddAuthorization(options =>
-{
-    options.AddPolicy(ApplicationDomain.ApplicationName, new AuthorizationPolicyBuilder()
-        .RequireAuthenticatedUser()
-        .Build());
-});
+builder.Services.AuthorizationService();
 
 var app = builder.Build();
 
@@ -64,9 +42,7 @@ if (!app.Environment.IsProduction())
 }
 
 if (app.Environment.IsDevelopment())
-{
     app.UseDeveloperExceptionPage();
-}
 
 app.UseUrlRewriter(builder.Configuration);
 
