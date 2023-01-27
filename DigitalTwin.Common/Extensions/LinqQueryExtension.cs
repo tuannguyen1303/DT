@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace DigitalTwin.Business.Extensions;
+namespace DigitalTwin.Common.Extensions;
 
 public static class LinqQueryExtension
 {

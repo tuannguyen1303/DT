@@ -1,5 +1,4 @@
-﻿using DigitalTwin.Business.Extensions;
-using DigitalTwin.Business.Helpers;
+﻿using DigitalTwin.Business.Helpers;
 using DigitalTwin.Business.Services.Chart;
 using DigitalTwin.Common.Constants;
 using DigitalTwin.Common.Enums;
@@ -7,16 +6,11 @@ using DigitalTwin.Data.Database;
 using DigitalTwin.Models.Requests.Chart;
 using DigitalTwin.Models.Requests.ValueChain;
 using DigitalTwin.Models.Responses;
-using DigitalTwin.Models.Responses.Category;
 using DigitalTwin.Models.Responses.ValueChain;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using DigitalTwin.Models.DTOs;
 using DigitalTwin.Common.Extensions;
-using System.Threading;
-using DocumentFormat.OpenXml.Drawing.Charts;
-using DigitalTwin.Data.Entities;
-using System.Linq;
 
 namespace DigitalTwin.Business.Services.ValueChain;
 

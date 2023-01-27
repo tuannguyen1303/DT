@@ -1,5 +1,4 @@
 ﻿using System.Linq.Expressions;
-using DigitalTwin.Business.Extensions;
 using DigitalTwin.Business.Helpers;
 using DigitalTwin.Common.Constants;
 using DigitalTwin.Common.Extensions;
@@ -42,7 +41,6 @@ namespace DigitalTwin.Business.Services.Chart
                 bool checkForecast = true;
                 foreach (var label in daysInMonth)
                 {
-                    var List = productLinkDto.Where(p => p.DateData.Day == 1).ToList();
                     bool checkHasData = false;
 
                     decimal? kpbi = productLinkDto.Any(p =>
@@ -99,6 +97,7 @@ namespace DigitalTwin.Business.Services.Chart
                         chartData?.Target?.Add(target != null ? target.ToString()! : null!);
                         chartData?.Planned?.Add(planned != null ? planned.ToString()! : null!);
                         chartData?.ForecastBarChart?.Add(forecast != null ? forecast.ToString()! : null!);
+                        
                         if (actual != null)
                         {
                             chartData?.ForecastActual?.Add(null!);
